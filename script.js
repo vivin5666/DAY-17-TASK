@@ -4,7 +4,7 @@ var row=document.createElement("div");
 row.classList.add("row","m-3");
 container.append(row);
 
-var api = "https://restcountries.com/v2/all";
+var api = "https://restcountries.com/v3.1/all";
 var fet = fetch(api)
   .then((response) => response.json())
   .then((data) => {
@@ -12,7 +12,7 @@ var fet = fetch(api)
     data.map((value) => {
       var spreadOperator = {
         ...value,
-        name: value.name,
+        name: value.name.common,
         flag: value.flags.png,
         code: value.cioc,
         capital: value.capital,
